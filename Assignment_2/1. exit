@@ -1,6 +1,7 @@
-
-c = ""
-while c != "exit":
-    c = float(input("Enter nember : "))
-    sum += c
+sum = 0
+while True:
+    c = input("Enter nember : ")
+    if c == "exit":
+        break
+    sum += float(c)
 print("sum = ", sum)
