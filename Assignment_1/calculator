@@ -24,7 +24,10 @@ match c:
     case "4":
         a = float(input("Enter first number : "))
         b = float(input("Enter second number : "))
-        print(a, " / ", b, " = ", a / b)
+        if (b==0):
+            print("Error!\nThe second number should not be equal to zero")
+        else:
+            print(a, " / ", b, " = ", a / b)
 
     case "5":
         a = float(input("Enter number : "))
