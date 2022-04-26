@@ -1,1 +1,6 @@
 
+c = ""
+while c != "exit":
+    c = float(input("Enter nember : "))
+    sum += c
+print("sum = ", sum)
