@@ -1,1 +1,52 @@
+from ast import match_case
+import math
 
+print(
+    "Which math operation?\n1. +\n2. -\n3. *\n4. /\n5. Radical\n6. sin\n7. cot\n8. cos\n9. tan\n10. factorial\n"
+)
+
+c = input()
+match c:
+    case "1":
+        a = float(input("Enter first number : "))
+        b = float(input("Enter second number : "))
+        print(a, " + ", b, " = ", a + b)
+
+    case "2":
+        a = float(input("Enter first number : "))
+        b = float(input("Enter second number : "))
+        print(a, " - ", b, " = ", a - b)
+
+    case "3":
+        a = float(input("Enter first number : "))
+        b = float(input("Enter second number : "))
+        print(a, " * ", b, " = ", a * b)
+
+    case "4":
+        a = float(input("Enter first number : "))
+        b = float(input("Enter second number : "))
+        print(a, " / ", b, " = ", a / b)
+
+    case "5":
+        a = float(input("Enter number : "))
+        print("Radical", a, " = ", math.sqrt(a))
+
+    case "6":
+        a = float(input("Enter number : "))
+        print(math.sin(math.radians(a)))
+
+    case "7":
+        a = float(input("Enter number : "))
+        print(math.cos(math.radians(a)) / math.sin(math.radians(a)))
+
+    case "8":
+        a = float(input("Enter number : "))
+        print(math.cos(math.radians(a)))
+
+    case "9":
+        a = float(input("Enter number : "))
+        print(math.tan(math.radians(a)))
+
+    case "10":
+        a = int(input("Enter number : "))
+        print(math.factorial(a))
