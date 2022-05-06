@@ -1,4 +1,3 @@
-from numpy import product
 from pyfiglet import Figlet
 import qrcode
 import time
