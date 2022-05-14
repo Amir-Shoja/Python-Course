@@ -1,0 +1,135 @@
+from tkinter import *
+from translate import Translator
+from tkinter import ttk
+
+dictionary = {}
+
+"""
+def addWord():
+    newKey = input("Enter new word : ")
+    dictionary[newKey] = input("Enter the translation of the new word : ")
+    with open("WordsBank.txt", "w") as f:
+        for key, value in dictionary.items():
+            f.write("%s:%s\n" % (key, value))
+
+
+def MENU():
+    btnAdd = Button(
+        window,
+        text="Add new Word",
+        cursor="arrow",
+        relief="ridge",
+        fg="black",
+        bg="white",
+        activebackground="black",
+        activeforeground="white",
+        font="Tahoma",
+    ).pack()
+
+    btnE2P = Button(
+        window,
+        text="English to Persian",
+        cursor="arrow",
+        relief="ridge",
+        fg="black",
+        bg="white",
+        activebackground="black",
+        activeforeground="white",
+        font="Tahoma",
+    ).pack()
+
+    btnP2E = Button(
+        window,
+        text="Persian to English",
+        cursor="arrow",
+        relief="ridge",
+        fg="black",
+        bg="white",
+        activebackground="black",
+        activeforeground="white",
+        font="Tahoma",
+    ).pack()
+
+    btnEXIT = Button(
+        window,
+        text="EXIT",
+        cursor="arrow",
+        relief="ridge",
+        fg="black",
+        bg="white",
+        activebackground="black",
+        activeforeground="white",
+        font="Tahoma",
+    ).pack()
+"""
+
+
+def menuBar_more():
+    menubar = Menu(window)
+    file = Menu(menubar, tearoff=0)
+    menubar.add_cascade(label="more", menu=file)
+    file.add_command(label="Add new Word")
+    file.add_separator()
+    file.add_command(label="English to Persian")
+    file.add_separator()
+    file.add_command(label="Persian to English")
+    file.add_separator()
+    file.add_command(label="exit", command=window.destroy)
+    window.config(menu=menubar)
+
+
+def translate():
+    translator = Translator(form_lang=First_lan.get(), to_lang=second_lan.get())
+    translation = translator.translate(var.get())
+    var1.set(translation)
+
+
+window = Tk()
+window.title("Translator")
+window.geometry("300x150")
+window.resizable(False, False)
+
+menuBar_more()
+# MENU()
+First_lan = StringVar(window)
+second_lan = StringVar(window)
+
+
+choices = {"English", "Spanish", "German", "Arabic", "Persian"}
+First_lan.set("English")
+second_lan.set("Persian")
+
+First_lan_menu = OptionMenu(window, First_lan, *choices)
+First_lan_menu.grid(row=2, column=2)
+
+second_lan_menu = OptionMenu(window, second_lan, *choices)
+second_lan_menu.grid(row=4, column=2)
+
+Label(
+    window,
+    text="input",
+).grid(row=2, column=0)
+var = StringVar()
+textbox = Entry(window, textvariable=var).grid(row=2, column=1)
+
+
+Label(
+    window,
+    text="output",
+).grid(row=4, column=0)
+var1 = StringVar()
+textbox = Entry(window, textvariable=var1).grid(row=4, column=1)
+
+btn = ttk.Button(
+    window,
+    text="Translate",
+    command=translate,
+).grid(row=5, column=1)
+
+window.mainloop()
+
+
+##import multiprocessing as m
+# p1 = m.Process(traget=fun1)
+# p2 = m.Process(traget=fun2)
+# p1.start()
