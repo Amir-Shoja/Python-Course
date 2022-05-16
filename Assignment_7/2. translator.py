@@ -5,6 +5,7 @@ words = []
 
 
 def readFile():
+    """
     print("Loading", end="")
     time.sleep(0.5)
     print(".", end="")
@@ -12,8 +13,9 @@ def readFile():
     print(".", end="")
     time.sleep(0.5)
     print(".\n")
+    """
     try:
-        myfile = open("WordsBank.txt", "r")
+        myfile = open("G:\Program\Python\PyLearn\Assignment_7\wordsBank.txt", "r")
         wordList = myfile.read().split("\n")
         for i in range(0, len(wordList), 2):
             words.append({"english": wordList[i], "persian": wordList[i + 1]})
@@ -22,9 +24,11 @@ def readFile():
         print("An Error Occurred While Opening File!")
         exit()
 
+    # print(wordList)
+
 
 def addWord():
-    myFile = open("translate.txt", "a")
+    myFile = open("G:\Program\Python\PyLearn\Assignment_7\wordsBank.txt", "a")
     newEnWord = input("Enter new english word : ")
     newPrWord = input("Enter the translation of the new word : ")
     myFile.write("\n%s\n%s" % (newEnWord, newPrWord))
@@ -39,8 +43,6 @@ def EnToPr():
         for j in range(len(words)):
             if sentence[i] == words[j]["english"]:
                 entopr.append(words[j]["persian"])
-            else:
-                entopr.append(words[i]["english"])
     print("Translate: " + " ".join(entopr))
 
 
@@ -51,8 +53,6 @@ def PrToEn():
         for j in range(len(words)):
             if sentence[i] == words[j]["persian"]:
                 prtoen.append(words[j]["english"])
-            else:
-                prtoen.append(words[i]["persian"])
     print("Translate: " + " ".join(prtoen))
 
 
@@ -67,7 +67,7 @@ def show_menu():
 
 readFile()
 show_menu()
-c = input("\nPlease Choose a Number : ")
+c = input("Please Choose a Number : ")
 
 if c == "1":
     addWord()
