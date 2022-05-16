@@ -17,7 +17,6 @@ def readFile():
         wordList = myfile.read().split("\n")
         for i in range(0, len(wordList), 2):
             words.append({"english": wordList[i], "persian": wordList[i + 1]})
-
         myfile.close()
     except:
         print("An Error Occurred While Opening File!")
@@ -27,7 +26,7 @@ def readFile():
 def addWord():
     newKey = input("Enter new word : ")
     dictionary[newKey] = newValue = input("Enter the translation of the new word : ")
-    with open("G:\\Program\\Python\\PyLearn\\Assignment_7\\WordsBank.txt", "a+") as f:
+    with open("G:\Program\Python\PyLearn\Assignment_7\WordsBank.txt", "a+") as f:
         for key, value in dictionary.items():
             f.write("%s:%s\n" % (key, value))
     words.append({"english": newKey, "persian": newValue})
@@ -37,7 +36,6 @@ def EnToPr():
     entopr = []
     sentence = input("Enter sentence :").split()
     for i in range(len(sentence)):
-        # for word in words:
         if sentence[i] == words[i]["english"]:
             entopr.append(words[i]["persian"])
         else:
@@ -49,7 +47,6 @@ def PrToEn():
     prtoen = []
     sentence = input("Enter sentence :").split()
     for i in range(len(sentence)):
-        # for word in words:
         if sentence[i] == words[i]["persian"]:
             prtoen.append(words[i]["english"])
         else:
