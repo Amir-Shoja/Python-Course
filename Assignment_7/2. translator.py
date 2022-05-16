@@ -24,7 +24,6 @@ def readFile():
 
 
 def addWord():
-    def addWord():
     myFile = open("translate.txt", "a")
     newEnWord = input("Enter new english word : ")
     newPrWord = input("Enter the translation of the new word : ")
@@ -37,10 +36,11 @@ def EnToPr():
     entopr = []
     sentence = input("Enter sentence :").split()
     for i in range(len(sentence)):
-        if sentence[i] == words[i]["english"]:
-            entopr.append(words[i]["persian"])
-        else:
-            entopr.append(words[i]["english"])
+        for j in range(len(words)):
+            if sentence[i] == words[j]["english"]:
+                entopr.append(words[j]["persian"])
+            else:
+                entopr.append(words[i]["english"])
     print("Translate: " + " ".join(entopr))
 
 
@@ -48,10 +48,11 @@ def PrToEn():
     prtoen = []
     sentence = input("Enter sentence :").split()
     for i in range(len(sentence)):
-        if sentence[i] == words[i]["persian"]:
-            prtoen.append(words[i]["english"])
-        else:
-            prtoen.append(words[i]["persian"])
+        for j in range(len(words)):
+            if sentence[i] == words[j]["persian"]:
+                prtoen.append(words[j]["english"])
+            else:
+                prtoen.append(words[i]["persian"])
     print("Translate: " + " ".join(prtoen))
 
 
