@@ -24,12 +24,13 @@ def readFile():
 
 
 def addWord():
-    newKey = input("Enter new word : ")
-    dictionary[newKey] = newValue = input("Enter the translation of the new word : ")
-    with open("G:\Program\Python\PyLearn\Assignment_7\WordsBank.txt", "a+") as f:
-        for key, value in dictionary.items():
-            f.write("%s:%s\n" % (key, value))
-    words.append({"english": newKey, "persian": newValue})
+    def addWord():
+    myFile = open("translate.txt", "a")
+    newEnWord = input("Enter new english word : ")
+    newPrWord = input("Enter the translation of the new word : ")
+    myFile.write("\n%s\n%s" % (newEnWord, newPrWord))
+    myFile.close()
+    words.append({"english": newEnWord, "persian": newPrWord})
 
 
 def EnToPr():
