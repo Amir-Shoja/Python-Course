@@ -1,9 +1,9 @@
-import imageio
-import os
+from os import listdir
+from imageio import imread, mimsave
 
-image = []
-for file_name in os.listdir("images"):
-    image = imageio.imread(f"image/{file_name}")
-    image.append(image)
+images = []
+image = listdir("New")
+for name in image:
+    images.append(imread("New/" + name))
 
-imageio.mimsave("fun.gif", image)
+mimsave("fun.gif", images)
